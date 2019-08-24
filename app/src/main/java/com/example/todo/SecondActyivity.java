@@ -105,7 +105,7 @@ public class SecondActyivity extends AppCompatActivity {
     private void openGallery() {
         Intent intent = new Intent();
         intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
+        intent.setAction(Intent.ACTION_PICK);
         startActivityForResult(Intent.createChooser(intent, "Select File"), REQUEST_IMAGE_GALLERY);
     }
 
@@ -130,13 +130,12 @@ public class SecondActyivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            if (requestCode == REQUEST_IMAGE_GALLERY) {
+            if (requestCode == REQUEST_IMAGE_GALLERY && data != null) {
                 onSelectFromGalleryResult(data);
             }
         }
     }
 
-    @SuppressWarnings("deprecation")
     private void onSelectFromGalleryResult(Intent data) {
 //        Bitmap bm = null;
 //        if (data != null) {
