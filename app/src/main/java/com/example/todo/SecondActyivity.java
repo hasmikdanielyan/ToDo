@@ -101,10 +101,11 @@ public class SecondActyivity extends AppCompatActivity {
                 == PackageManager.PERMISSION_GRANTED;
 
     }
+
     private void openGallery() {
         Intent intent = new Intent();
         intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);//
+        intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select File"), REQUEST_IMAGE_GALLERY);
     }
 
